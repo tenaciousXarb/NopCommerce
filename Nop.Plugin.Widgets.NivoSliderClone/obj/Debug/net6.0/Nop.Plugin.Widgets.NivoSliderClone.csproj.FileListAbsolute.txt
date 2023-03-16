@@ -329,7 +329,6 @@ C:\Users\USER\Documents\NopCommerceNew\Presentation\Nop.Web\Plugins\Widgets.Nivo
 C:\Users\USER\Documents\NopCommerceNew\Presentation\Nop.Web\Plugins\Widgets.NivoSliderClone\Content\nivosliderclone\sample-images\banner5.jpg
 C:\Users\USER\Documents\NopCommerceNew\Presentation\Nop.Web\Plugins\Widgets.NivoSliderClone\Views\Configure.cshtml
 C:\Users\USER\Documents\NopCommerceNew\Presentation\Nop.Web\Plugins\Widgets.NivoSliderClone\Views\PublicInfo.cshtml
-C:\Users\USER\Documents\NopCommerceNew\Presentation\Nop.Web\Plugins\Widgets.NivoSliderClone\Views\_PublicInfo.SliderLine.cshtml
 C:\Users\USER\Documents\NopCommerceNew\Presentation\Nop.Web\Plugins\Widgets.NivoSliderClone\Views\_ViewImports.cshtml
 C:\Users\USER\Documents\NopCommerceNew\Presentation\Nop.Web\Plugins\Widgets.NivoSliderClone\plugin.json
 C:\Users\USER\Documents\NopCommerceNew\Presentation\Nop.Web\Plugins\Widgets.NivoSliderClone\logo.jpg

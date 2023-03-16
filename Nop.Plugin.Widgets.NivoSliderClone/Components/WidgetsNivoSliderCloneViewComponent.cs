@@ -44,10 +44,9 @@ namespace Nop.Plugin.Widgets.NivoSliderClone.Components
 
             foreach (var image in model)
             {
-                var url = await _imageService.GetPictureUrlAsync(image.Id);
                 publicInfoList.Add(new PublicInfoModel()
                 {
-                    PictureUrl = string.IsNullOrEmpty(url) ? null : url,
+                    PictureUrl = image.MetaData != null ? await _imageService.GetPictureUrlAsync(image.Id) : string.Empty,
                     Url = image.Url,
                     Comment = image.Comment,
                     Extension = image.Extension
@@ -63,18 +62,5 @@ namespace Nop.Plugin.Widgets.NivoSliderClone.Components
                 return View("~/Plugins/Widgets.NivoSliderClone/Views/PublicInfo.cshtml", publicInfoList);
             }
         }
-
-        /*protected async Task<string> GetPictureUrlAsync(int id)
-        {
-            var cacheKey = _staticCacheManager.PrepareKeyForDefaultCache(ModelCacheEventConsumer.PICTURE_URL_MODEL_KEY,
-                pictureId, _webHelper.IsCurrentConnectionSecured() ? Uri.UriSchemeHttps : Uri.UriSchemeHttp);
-
-            return await _staticCacheManager.GetAsync(cacheKey, async () =>
-            {
-                //little hack here. nulls aren't cacheable so set it to ""
-                var url = await _pictureService.GetPictureUrlAsync(pictureId, showDefaultPicture: false) ?? "";
-                return url;
-            });
-        }*/
     }
 }
