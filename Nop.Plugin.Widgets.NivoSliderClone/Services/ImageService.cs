@@ -8,6 +8,7 @@ using Nop.Core.Infrastructure;
 using Nop.Data;
 using Nop.Plugin.Widgets.NivoSliderClone.Domain;
 using Nop.Services.Media;
+using Org.BouncyCastle.Utilities;
 using System.Security.Cryptography.X509Certificates;
 
 namespace Nop.Plugin.Widgets.NivoSliderClone.Services
@@ -69,7 +70,7 @@ namespace Nop.Plugin.Widgets.NivoSliderClone.Services
         public async Task<string> GetPictureUrlAsync(int id, bool showDefaultPicture = true)
         {
             var image = await _imageRepository.GetByIdAsync(id);
-            if(image == null)
+            if(image == null || image.MetaData == null)
             {
                 return showDefaultPicture ? (await _pictureService.GetDefaultPictureUrlAsync(targetSize: 0, defaultPictureType: PictureType.Entity, storeLocation: null)): (string.Empty);
             }
@@ -81,35 +82,33 @@ namespace Nop.Plugin.Widgets.NivoSliderClone.Services
                     ? $"image{image.Id:0000000}_{image.FileName}.{lastPart}"
                 : $"image{image.Id:0000000}.{lastPart}";
 
-                var thumbFilePath = _fileProvider.Combine(_fileProvider.GetAbsolutePath(NopMediaDefaults.ImageThumbsPath), thumbFileName);
+                var path = _fileProvider.GetAbsolutePath(NopMediaDefaults.ImageThumbsPath);
 
-                if (!_fileProvider.FileExists(thumbFilePath))
+                var thumbFilePath = _fileProvider.Combine(path, thumbFileName);
+
+                if (!Directory.Exists(path))
                 {
-                    //the named mutex helps to avoid creating the same files in different threads,
-                    //and does not decrease performance significantly, because the code is blocked only for the specific file.
-                    //you should be very careful, mutexes cannot be used in with the await operation
-                    //we can't use semaphore here, because it produces PlatformNotSupportedException exception on UNIX based systems
-                    using var mutex = new Mutex(false, thumbFileName);
-                    mutex.WaitOne();
-                    try
-                    {
-                        SaveThumbAsync(thumbFilePath, image.MetaData).Wait();
-                    }
-                    finally
-                    {
-                        mutex.ReleaseMutex();
-                    }
+                    Directory.CreateDirectory(path);
                 }
+
+                if (File.Exists(thumbFilePath))
+                {
+                    File.Delete(thumbFilePath);
+                }
+
+                using var mutex = new Mutex(false, thumbFileName);
+                mutex.WaitOne();
+                try
+                {
+                    File.WriteAllBytesAsync(thumbFilePath, image.MetaData).Wait();
+                }
+                finally
+                {
+                    mutex.ReleaseMutex();
+                }
+
                 return await GetThumbUrlAsync(thumbFileName);
             }            
-        }
-
-        private async Task SaveThumbAsync(string thumbFilePath, byte[] metaData)
-        {
-            var absolutePath = _fileProvider.GetAbsolutePath(NopMediaDefaults.ImageThumbsPath);
-            _fileProvider.CreateDirectory(absolutePath);
-
-            await _fileProvider.WriteAllBytesAsync(thumbFilePath, metaData);
         }
 
         private async Task<string> GetThumbUrlAsync(string thumbFileName)

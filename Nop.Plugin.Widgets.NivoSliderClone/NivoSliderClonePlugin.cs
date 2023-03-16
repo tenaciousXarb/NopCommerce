@@ -36,7 +36,7 @@ namespace Nop.Plugin.Widgets.NivoSliderClone
         {
             var sampleImagesPath = _fileProvider.MapPath("~/Plugins/Widgets.NivoSliderClone/Content/nivosliderclone/sample-images/");
 
-            var bytes1 = await _fileProvider.ReadAllBytesAsync(_fileProvider.Combine(sampleImagesPath, "banner1.jpg"));
+            var bytes1 = await File.ReadAllBytesAsync(Path.Combine(sampleImagesPath, "banner1.jpg"));
 
             var image1 = new ImageModel()
             {
