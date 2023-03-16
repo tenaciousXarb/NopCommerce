@@ -5,7 +5,7 @@
     Layout = "_ConfigurePlugin";
 }
 
-<form asp-controller="WidgetsNivoSliderClone" asp-action="Configure" method="post">
+<form asp-controller="WidgetsNivoSliderClone" asp-action="Configure" method="post" enctype="multipart/form-data">
     <section class="content">
         <div class="container-fluid">
             <div class="cards-group">
@@ -19,8 +19,14 @@
                                 <nop-label asp-for="Picture1Id" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Picture1Id" />
-                                <span asp-validation-for="Picture1Id"></span>
+                                <input type="file" name="File1" />
+                                <div class="upload-picture-block">
+                                    <div class="picture-container">
+                                        <div class="uploaded-image">
+                                            <img src="@Model.Picture1Url"  width="100" height="41"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -28,17 +34,7 @@
                                 <nop-label asp-for="Text1" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Text1" />
-                                <span asp-validation-for="Text1"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-3">
-                                <nop-label asp-for="AltText1" />
-                            </div>
-                            <div class="col-md-9">
-                                <nop-editor asp-for="AltText1" />
-                                <span asp-validation-for="AltText1"></span>
+                                <input type="text" name="Text1" value="@Model.Text1" />
                             </div>
                         </div>
                         <div class="form-group row">
@@ -46,8 +42,7 @@
                                 <nop-label asp-for="Link1" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Link1" />
-                                <span asp-validation-for="Link1"></span>
+                                <input type="text" name="Link1" value="@Model.Link1" />
                             </div>
                         </div>
                     </div>
@@ -62,8 +57,14 @@
                                 <nop-label asp-for="Picture2Id" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Picture2Id" />
-                                <span asp-validation-for="Picture2Id"></span>
+                                <input type="file" name="File2" />
+                                <div class="upload-picture-block">
+                                    <div class="picture-container">
+                                        <div class="uploaded-image">
+                                            <img src="@Model.Picture2Url"  width="100" height="41"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -71,17 +72,7 @@
                                 <nop-label asp-for="Text2" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Text2" />
-                                <span asp-validation-for="Text2"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-3">
-                                <nop-label asp-for="AltText2" />
-                            </div>
-                            <div class="col-md-9">
-                                <nop-editor asp-for="AltText2" />
-                                <span asp-validation-for="AltText2"></span>
+                                <input type="text" name="Text2" value="@Model.Text2" />
                             </div>
                         </div>
                         <div class="form-group row">
@@ -89,8 +80,7 @@
                                 <nop-label asp-for="Link2" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Link2" />
-                                <span asp-validation-for="Link2"></span>
+                                <input type="text" name="Link2" value="@Model.Link2" />
                             </div>
                         </div>
                     </div>
@@ -105,8 +95,14 @@
                                 <nop-label asp-for="Picture3Id" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Picture3Id" />
-                                <span asp-validation-for="Picture3Id"></span>
+                                <input type="file" name="File3" />
+                                <div class="upload-picture-block">
+                                    <div class="picture-container">
+                                        <div class="uploaded-image">
+                                            <img src="@Model.Picture3Url"  width="100" height="41"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -114,17 +110,7 @@
                                 <nop-label asp-for="Text3" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Text3" />
-                                <span asp-validation-for="Text3"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-3">
-                                <nop-label asp-for="AltText3" />
-                            </div>
-                            <div class="col-md-9">
-                                <nop-editor asp-for="AltText3" />
-                                <span asp-validation-for="AltText3"></span>
+                                <input type="text" name="Text3" value="@Model.Text3" />
                             </div>
                         </div>
                         <div class="form-group row">
@@ -132,8 +118,7 @@
                                 <nop-label asp-for="Link3" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Link3" />
-                                <span asp-validation-for="Link3"></span>
+                                <input type="text" name="Link3" value="@Model.Link3" />
                             </div>
                         </div>
                     </div>
@@ -148,8 +133,14 @@
                                 <nop-label asp-for="Picture4Id" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Picture4Id" />
-                                <span asp-validation-for="Picture4Id"></span>
+                                <input type="file" name="File4" />
+                                <div class="upload-picture-block">
+                                    <div class="picture-container">
+                                        <div class="uploaded-image">
+                                            <img src="@Model.Picture4Url"  width="100" height="41"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -157,17 +148,7 @@
                                 <nop-label asp-for="Text4" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Text4" />
-                                <span asp-validation-for="Text4"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-3">
-                                <nop-label asp-for="AltText4" />
-                            </div>
-                            <div class="col-md-9">
-                                <nop-editor asp-for="AltText4" />
-                                <span asp-validation-for="AltText4"></span>
+                                <input type="text" name="Text4" value="@Model.Text4" />
                             </div>
                         </div>
                         <div class="form-group row">
@@ -175,8 +156,7 @@
                                 <nop-label asp-for="Link4" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Link4" />
-                                <span asp-validation-for="Link4"></span>
+                                <input type="text" name="Link4" value="@Model.Link4" />
                             </div>
                         </div>
                     </div>
@@ -191,8 +171,14 @@
                                 <nop-label asp-for="Picture5Id" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Picture5Id" />
-                                <span asp-validation-for="Picture5Id"></span>
+                                <input type="file" name="File5" />
+                                <div class="upload-picture-block">
+                                    <div class="picture-container">
+                                        <div class="uploaded-image">
+                                            <img src="@Model.Picture5Url"  width="100" height="41"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -200,17 +186,7 @@
                                 <nop-label asp-for="Text5" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Text5" />
-                                <span asp-validation-for="Text5"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-md-3">
-                                <nop-label asp-for="AltText5" />
-                            </div>
-                            <div class="col-md-9">
-                                <nop-editor asp-for="AltText5" />
-                                <span asp-validation-for="AltText5"></span>
+                                <input type="text" name="Text5" value="@Model.Text5" />
                             </div>
                         </div>
                         <div class="form-group row">
@@ -218,8 +194,7 @@
                                 <nop-label asp-for="Link5" />
                             </div>
                             <div class="col-md-9">
-                                <nop-editor asp-for="Link5" />
-                                <span asp-validation-for="Link5"></span>
+                                <input type="text" name="Link5" value="@Model.Link5" />
                             </div>
                         </div>
                     </div>
