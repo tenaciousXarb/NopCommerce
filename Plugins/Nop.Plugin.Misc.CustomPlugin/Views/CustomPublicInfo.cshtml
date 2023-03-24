@@ -1,0 +1,44 @@
+﻿@model Nop.Plugin.Misc.CustomPlugin.Models.InfoModel
+@{
+    Layout = "";
+}
+
+<link rel="stylesheet" href="~/Plugins/Widgets.NivoSlider/Content/nivoslider/nivo-slider.css" />
+<link rel="stylesheet" href="~/Plugins/Widgets.NivoSlider/Content/nivoslider/themes/custom/custom.css" />
+
+<div>
+    <div>
+        @{
+            var dataSlide1 = new ViewDataDictionary(ViewData)
+            {
+                {"FullName", Model.FullName},
+                { "Email", Model.Email}
+            };
+            
+            var fullName = dataSlide1["FullName"]?.ToString() ?? "";
+            var email = dataSlide1["Email"]?.ToString() ?? "";
+
+            <div class="card-header">
+               X === Details === X
+            </div>
+            <div class="card-body">
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <nop-label>Full Name: </nop-label>
+                    </div>
+                    <div class="col-md-9">
+                        <nop-label>@fullName</nop-label>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-3">
+                        <nop-label>Email: </nop-label>
+                    </div>
+                    <div class="col-md-9">
+                        <nop-label>@email</nop-label>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,184 @@
+﻿@inherits Nop.Web.Framework.Mvc.Razor.NopRazorPage<TModel>
+@inject Nop.Core.Infrastructure.INopFileProvider _fileProvider
+@model List<PublicInfoModel>
+@{
+    Layout = "";
+}
+
+<link rel="stylesheet" href="~/Plugins/Widgets.NivoSliderClone/Content/nivosliderclone/nivo-slider.css" />
+<link rel="stylesheet" href="~/Plugins/Widgets.NivoSliderClone/Content/nivosliderclone/themes/custom/custom.css" />
+<script asp-exclude-from-bundle="true" src="~/Plugins/Widgets.NivoSliderClone/Scripts/jquery.nivo.slider.clone.js" asp-location="Footer"></script>
+
+<div class="slider-wrapper theme-custom">
+    <div id="nivo-slider" class="nivoSlider">
+        @{
+            if (Model.Count > 0)
+            {
+                var dataSlide1 = new ViewDataDictionary(ViewData)
+                {
+                    {"pictureUrl", Model[0].PictureUrl},
+                    { "text", Model[0].Comment},
+                    { "link", Model[0].Url},
+                    {"alttext", Model[0].Extension }
+                };
+
+                var pictureUrl = dataSlide1["pictureUrl"]?.ToString() ?? "";
+                var link = dataSlide1["link"]?.ToString() ?? "";
+                var dataTransition = ViewData["dataTransition"]?.ToString() ?? "";
+                var text = dataSlide1["text"]?.ToString() ?? "";
+                var alttext = dataSlide1["alttext"]?.ToString() ?? "";
+
+                if (!string.IsNullOrEmpty(pictureUrl))
+                {
+                    if (!string.IsNullOrEmpty(link))
+                    {
+                        <a href="@link" aria-label="@alttext">
+                            <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="@alttext" title="@text" />
+                        </a>
+                    }
+                    else
+                    {
+                        <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="@alttext" title="@text" />
+                    }
+                }
+            }
+        }
+
+        @{
+            if (Model.Count > 1)
+            {
+                var dataSlide2 = new ViewDataDictionary(ViewData)
+                {
+                    {"pictureUrl", Model[1].PictureUrl},
+                    { "text", Model[1].Comment},
+                    { "link", Model[1].Url},
+                    {"alttext", Model[1].Extension }
+                };
+
+                var pictureUrl = dataSlide2["pictureUrl"]?.ToString() ?? "";
+                var link = dataSlide2["link"]?.ToString() ?? "";
+                var dataTransition = ViewData["dataTransition"]?.ToString() ?? "";
+                var text = dataSlide2["text"]?.ToString() ?? "";
+                var alttext = dataSlide2["alttext"]?.ToString() ?? "";
+
+                if (!string.IsNullOrEmpty(pictureUrl))
+                {
+                    if (!string.IsNullOrEmpty(link))
+                    {
+                        <a href="@link" aria-label="@alttext">
+                            <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="@alttext" title="@text" />
+                        </a>
+                    }
+                    else
+                    {
+                        <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="@alttext" title="@text" />
+                    }
+                }
+            }
+        }
+
+        @{
+            if (Model.Count > 2)
+            {
+                var dataSlide3 = new ViewDataDictionary(ViewData)
+                {
+                    {"pictureUrl", Model[2].PictureUrl},
+                    { "text", Model[2].Comment},
+                    { "link", Model[2].Url},
+                    {"alttext", Model[2].Extension }
+                };
+
+                var pictureUrl = dataSlide3["pictureUrl"]?.ToString() ?? "";
+                var link = dataSlide3["link"]?.ToString() ?? "";
+                var dataTransition = ViewData["dataTransition"]?.ToString() ?? "";
+                var text = dataSlide3["text"]?.ToString() ?? "";
+                var alttext = dataSlide3["alttext"]?.ToString() ?? "";
+
+                if (!string.IsNullOrEmpty(pictureUrl))
+                {
+                    if (!string.IsNullOrEmpty(link))
+                    {
+                        <a href="@link" aria-label="@alttext">
+                            <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="@alttext" title="@text" />
+                        </a>
+                    }
+                    else
+                    {
+                        <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="@alttext" title="@text" />
+                    }
+                }
+            }
+        }
+
+        @{
+            if (Model.Count > 3)
+            {
+                var dataSlide4 = new ViewDataDictionary(ViewData)
+                {
+                    {"pictureUrl", Model[3].PictureUrl},
+                    { "text", Model[3].Comment},
+                    { "link", Model[3].Url},
+                    {"alttext", Model[3].Extension }
+                };
+
+                var pictureUrl = dataSlide4["pictureUrl"]?.ToString() ?? "";
+                var link = dataSlide4["link"]?.ToString() ?? "";
+                var dataTransition = ViewData["dataTransition"]?.ToString() ?? "";
+                var text = dataSlide4["text"]?.ToString() ?? "";
+                var alttext = dataSlide4["alttext"]?.ToString() ?? "";
+
+                if (!string.IsNullOrEmpty(pictureUrl))
+                {
+                    if (!string.IsNullOrEmpty(link))
+                    {
+                        <a href="@link" aria-label="@alttext">
+                            <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="@alttext" title="@text" />
+                        </a>
+                    }
+                    else
+                    {
+                        <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="@alttext" title="@text" />
+                    }
+                }
+            }
+        }
+
+        @{
+            if (Model.Count > 4)
+            {
+                var dataSlide5 = new ViewDataDictionary(ViewData)
+                {
+                    {"pictureUrl", Model[4].PictureUrl},
+                    { "text", Model[4].Comment},
+                    { "link", Model[4].Url},
+                    {"alttext", Model[4].Extension }
+                };
+
+                var pictureUrl = dataSlide5["pictureUrl"]?.ToString() ?? "";
+                var link = dataSlide5["link"]?.ToString() ?? "";
+                var dataTransition = ViewData["dataTransition"]?.ToString() ?? "";
+                var text = dataSlide5["text"]?.ToString() ?? "";
+                var alttext = dataSlide5["alttext"]?.ToString() ?? "";
+
+                if (!string.IsNullOrEmpty(pictureUrl))
+                {
+                    if (!string.IsNullOrEmpty(link))
+                    {
+                        <a href="@link" aria-label="@alttext">
+                            <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="@alttext" title="@text" />
+                        </a>
+                    }
+                    else
+                    {
+                        <img src="@pictureUrl" data-thumb="@pictureUrl" data-transition="@dataTransition" alt="@alttext" title="@text" />
+                    }
+                }
+            }
+        }
+    </div>
+</div>
+<script asp-location="Footer">
+    $(window).on('load', function () {
+        $('#nivo-slider').nivoSlider();
+    });
+</script>
