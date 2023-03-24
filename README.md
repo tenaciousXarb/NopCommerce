@@ -1,1 +1,1 @@
-# NopCommerce_Plugins
+# NopCommerce
