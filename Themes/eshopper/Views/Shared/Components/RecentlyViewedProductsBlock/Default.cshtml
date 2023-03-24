@@ -1,0 +1,32 @@
+﻿@model IList<ProductOverviewModel>
+@if (Model.Count > 0)
+
+
+{<div class="collaps-filter">
+
+        <h2>@T("Products.RecentlyViewedProducts")</h2>
+        <div class="brands-name filter-content">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                var product = Model[i];
+                <div class="media">
+                    @foreach(var defaultPicturModel in product.PictureModels)
+                    {
+                        if (!String.IsNullOrEmpty(defaultPicturModel.ImageUrl))
+                        {
+                            <div class="media-left media-middle">
+                                <a class="product-picture" href="@Url.RouteUrl("Product", new { SeName = product.SeName })" title="@defaultPicturModel.Title">
+                                    <img class="img-thumbnail" alt="@defaultPicturModel.AlternateText" src="@defaultPicturModel.ImageUrl" title="@defaultPicturModel.Title" />
+                                </a>
+                            </div>
+                        }
+                        <div class="media-body">
+                            <a class="product-name" href="@Url.RouteUrl("Product", new { SeName = product.SeName })">@product.Name</a>
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+
+}
